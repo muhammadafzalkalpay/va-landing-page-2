@@ -21,9 +21,7 @@ export const metadata: Metadata = {
   title: "Middle East Advisory Group | Premium Corporate Advisory Services",
   description: "Trusted advisers delivering Big-Four-level expertise across the GCC region",
   generator: "v0.app",
-  icons: {
-    icon: "/icon.svg",
-  },
+
 }
 
 export default function RootLayout({
