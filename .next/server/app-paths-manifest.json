@@ -1,0 +1,7 @@
+{
+  "/services/property-advisory/page": "app/services/property-advisory/page.js",
+  "/services/uae-ksa-relocation/page": "app/services/uae-ksa-relocation/page.js",
+  "/services/tax-advisory/page": "app/services/tax-advisory/page.js",
+  "/services/family-office-advisory/page": "app/services/family-office-advisory/page.js",
+  "/services/accounting-compliance/page": "app/services/accounting-compliance/page.js"
+}
