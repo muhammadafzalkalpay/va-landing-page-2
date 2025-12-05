@@ -1,26 +1,38 @@
 "use client"
 
 import { Linkedin, Mail, Phone } from "lucide-react"
+import Link from "next/link" // <--- 1. Import Link for Next.js routing
+
+// --- DEFINE SERVICES ARRAY HERE ---
+// NOTE: This array MUST match the one in your Header component exactly.
+const services = [
+  { name: "UAE & KSA Relocation and Corporate Services", display: "UAE & KSA Relocation", slug: "uae-ksa-relocation" },
+  { name: "Tax Advisory & International Structuring", display: "Tax Advisory", slug: "tax-advisory" },
+  { name: "International Property Advisory & GCC–UK Real Estate", display: "Property Advisory", slug: "property-advisory" },
+  { name: "Advisory for GCC Families & Family Offices", display: "Family Office Advisory", slug: "family-office-advisory" },
+  { name: "Accounting, Audit Support & GCC Tax Compliance", display: "Accounting & Compliance", slug: "accounting-compliance" },
+]
+// ----------------------------------
 
 export function Footer() {
   return (
     <footer className="bg-primary text-white py-16 sm:py-20 md:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 sm:gap-12 lg:gap-16 mb-12 sm:mb-16">
-          {/* Logo and description */}
+          {/* Logo and description (No changes) */}
           <div>
-         <div className="mb-5 sm:mb-6">
-  <div className="font-serif text-lg sm:text-xl font-bold tracking-wide">
-    <div className="text-accent">MIDDLE EAST</div>
-    <div className="text-white">ADVISORY GROUP</div>
-  </div>
-</div>
-            {/* </CHANGE> */}
+            <div className="mb-5 sm:mb-6">
+              <div className="font-serif text-lg sm:text-xl font-bold tracking-wide">
+                <div className="text-accent">MIDDLE EAST</div>
+                <div className="text-white">ADVISORY GROUP</div>
+              </div>
+            </div>
             <p className="text-xs sm:text-sm text-white/70 mt-5 sm:mt-6 font-light leading-relaxed">
-              Middle East Advisory Group — A trusted advisory partner for the GCC region.
+              Middle East Advisory Group — A trusted advisory partner for the
+              GCC region.
             </p>
 
-            {/* Social icons in gold */}
+            {/* Social icons (No changes) */}
             <div className="flex gap-4 mt-6 sm:mt-8">
               <a
                 href="https://linkedin.com"
@@ -31,50 +43,48 @@ export function Footer() {
               >
                 <Linkedin className="w-4 h-4 sm:w-5 sm:h-5" />
               </a>
-              <a href="mailto:info@meag.com" className="text-accent hover:text-accent/80 transition" aria-label="Email">
+              <a
+                href="mailto:info@meag.com"
+                className="text-accent hover:text-accent/80 transition"
+                aria-label="Email"
+              >
                 <Mail className="w-4 h-4 sm:w-5 sm:h-5" />
               </a>
-              <a href="tel:+971000000000" className="text-accent hover:text-accent/80 transition" aria-label="Phone">
+              <a
+                href="tel:+971000000000"
+                className="text-accent hover:text-accent/80 transition"
+                aria-label="Phone"
+              >
                 <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
               </a>
             </div>
           </div>
 
-          {/* Services */}
+          {/* Services - UPDATED TO USE LINK COMPONENT AND SLUGS */}
           <div>
-            <h4 className="font-serif font-semibold mb-5 sm:mb-6 text-base sm:text-lg text-white">Services</h4>
+            <h4 className="font-serif font-semibold mb-5 sm:mb-6 text-base sm:text-lg text-white">
+              Services
+            </h4>
             <ul className="space-y-3 sm:space-y-4 text-xs sm:text-sm text-white/70 font-light">
-              <li>
-                <a href="/#services" className="hover:text-accent transition">
-                  UAE & KSA Relocation
-                </a>
-              </li>
-              <li>
-                <a href="/#services" className="hover:text-accent transition">
-                  Tax Advisory
-                </a>
-              </li>
-              <li>
-                <a href="/#services" className="hover:text-accent transition">
-                  Property Advisory
-                </a>
-              </li>
-              <li>
-                <a href="/#services" className="hover:text-accent transition">
-                  Family Office Advisory
-                </a>
-              </li>
-              <li>
-                <a href="/#services" className="hover:text-accent transition">
-                  Accounting & Compliance
-                </a>
-              </li>
+              {services.map((service, index) => (
+                <li key={index}>
+                  <Link
+                    href={`/services/${service.slug}`} // <--- Use the dynamic slug for the href
+                    className="hover:text-accent transition"
+                  >
+                    {service.display}{" "}
+                    {/* Use a shorter display name for the footer */}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Company */}
+          {/* Company (No changes) */}
           <div>
-            <h4 className="font-serif font-semibold mb-5 sm:mb-6 text-base sm:text-lg text-white">Company</h4>
+            <h4 className="font-serif font-semibold mb-5 sm:mb-6 text-base sm:text-lg text-white">
+              Company
+            </h4>
             <ul className="space-y-3 sm:space-y-4 text-xs sm:text-sm text-white/70 font-light">
               <li>
                 <a href="/#about" className="hover:text-accent transition">
@@ -99,26 +109,38 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Offices */}
+          {/* Offices (No changes) */}
           <div>
-            <h4 className="font-serif font-semibold mb-5 sm:mb-6 text-base sm:text-lg text-white">Offices</h4>
+            <h4 className="font-serif font-semibold mb-5 sm:mb-6 text-base sm:text-lg text-white">
+              Offices
+            </h4>
             <div className="space-y-5 sm:space-y-6">
               <div>
-                <p className="text-xs sm:text-sm font-medium text-accent mb-2">Dubai</p>
-                <p className="text-xs text-white/70 font-light leading-relaxed">Boulevard Plaza, Downtown Dubai</p>
+                <p className="text-xs sm:text-sm font-medium text-accent mb-2">
+                  Dubai
+                </p>
+                <p className="text-xs text-white/70 font-light leading-relaxed">
+                  Boulevard Plaza, Downtown Dubai
+                </p>
               </div>
               <div>
-                <p className="text-xs sm:text-sm font-medium text-accent mb-2">London</p>
-                <p className="text-xs text-white/70 font-light leading-relaxed">Mayfair, London</p>
+                <p className="text-xs sm:text-sm font-medium text-accent mb-2">
+                  London
+                </p>
+                <p className="text-xs text-white/70 font-light leading-relaxed">
+                  Mayfair, London
+                </p>
               </div>
               <div>
-                <p className="text-xs text-white/70 font-light">Also in Abu Dhabi, Saudi Arabia</p>
+                <p className="text-xs text-white/70 font-light">
+                  Also in Abu Dhabi, Saudi Arabia
+                </p>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Bottom bar */}
+        {/* Bottom bar (No changes) */}
         <div className="border-t border-white/10 pt-8 sm:pt-12 flex flex-col md:flex-row justify-between items-center gap-4 sm:gap-6">
           <p className="text-xs sm:text-sm text-white/60 font-light">
             © 2025 Middle East Advisory Group. All rights reserved.
@@ -134,5 +156,5 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }
